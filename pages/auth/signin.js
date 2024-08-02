@@ -44,6 +44,8 @@ export default function Signin({csrfToken}) {
             </form>
             <button onClick={() => signIn("google")}>Sign in with Google</button>
             <br></br>
+            <button onClick={() => signIn("facebook")}>Sign in with Facebook</button>
+            <br></br>
             <button onClick={() => router.push('/auth/signup')}>Sign Up</button>
         </>
     )
