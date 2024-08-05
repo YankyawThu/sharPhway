@@ -30,11 +30,10 @@ export default NextAuth({
 
                 const user = await prisma.user.findUnique({
                     where: { email: credentials.email },
-                  })
+                })
                 if (user && await compare(credentials.password, user.password)) {
                     return user
                 }
-          
                 return null
             }
         }),

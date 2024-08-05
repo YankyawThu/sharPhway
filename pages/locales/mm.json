@@ -1,0 +1,25 @@
+{
+    "signin": {
+        "login": "ဝင်မည်",
+        "hey": "ဟဲလို",
+        "loginNow": "အခုအကောင့်ဝင်ပါ",
+        "ifYouAreNew": "သင်ဟာအသစ်ဆိုရင်",
+        "createNew": "အကောင့်လုပ်မည်",
+        "email": "အီးမေလ်",
+        "password": "စကားဝှက်",
+        "continueWithGoogle": "Google နှင့်ဆက်လုပ်မည်",
+        "continueWithFacebook": "Facebook နှင့်ဆက်လုပ်မည်"
+    },
+    "signup": {
+        "register": "အတည်ပြုမည်",
+        "hey": "ဟဲလို",
+        "signupNow": "အခုအကောင့်လုပ်ပါ",
+        "ifYouHaveAlready": "သင်မှာရှိပြီးသားဆိုရင်",
+        "goLogin": "အကောင့်ဝင်မည်",
+        "username": "သင့်နာမည်",
+        "email": "အီးမေလ်",
+        "password": "စကားဝှက်",
+        "continueWithGoogle": "Google နှင့်ဆက်လုပ်မည်",
+        "continueWithFacebook": "Facebook နှင့်ဆက်လုပ်မည်"
+    }
+}

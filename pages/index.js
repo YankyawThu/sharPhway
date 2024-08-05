@@ -1,15 +1,29 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import { useSession, signIn, signOut } from "next-auth/react";
+import Image from "next/image"
+import { useSession, signIn, signOut } from "next-auth/react"
+import { useTranslations } from 'next-intl'
+import Locale from "@/components/locale"
+import Link from 'next/link'
+import { useRouter } from "next/router"
 
-const inter = Inter({ subsets: ["latin"] });
+export async function getStaticProps(context) {
+  return {
+    props: {
+      messages: (await import(`./locales/${context.locale}.json`)).default
+    }
+  }
+}
 
-export default function Home() {
+export default function Home({children}) {
+  const t = useTranslations()
+  const router = useRouter()
+  const { locale: activeLocale } = router
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      Welcome! <button onClick={() => signOut()}>Sign Out</button>
-    </main>
-  );
+    <>
+      <Locale />
+      <Link href="/news">News Services FYI Exchange BUY SELL Rate</Link>
+      Welcome! <button onClick={() => signOut()}>{t('logout')}</button>
+      {children}
+    </>
+  )
 }

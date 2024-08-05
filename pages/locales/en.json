@@ -1,0 +1,25 @@
+{
+    "signin": {
+        "login": "Log In",
+        "hey": "Hey",
+        "loginNow": "Login Now",
+        "ifYouAreNew": "If you are new",
+        "createNew": "Create New",
+        "email": "Email",
+        "password": "Password",
+        "continueWithGoogle": "Continue with Google",
+        "continueWithFacebook": "Continue with Facebook"
+    },
+    "signup": {
+        "register": "Register",
+        "hey": "Hey",
+        "signupNow": "Signup Now",
+        "ifYouHaveAlready": "If you have already",
+        "goLogin": "Go Login",
+        "username": "Username",
+        "email": "Email",
+        "password": "Password",
+        "continueWithGoogle": "Continue with Google",
+        "continueWithFacebook": "Continue with Facebook"
+    }
+}

@@ -6,6 +6,6 @@
 
 body {
   font-size: var(--sharphway-font-size-medium);
-  font-family: 'Noto Sans Myanmar', sans-serif;
-  letter-spacing: 0.2px;
+  /* font-family: 'Noto Sans Myanmar', sans-serif; */
+  /* letter-spacing: 0.2px; */
 }
