@@ -8,7 +8,9 @@
         "email": "Email",
         "password": "Password",
         "continueWithGoogle": "Continue with Google",
-        "continueWithFacebook": "Continue with Facebook"
+        "continueWithFacebook": "Continue with Facebook",
+        "provideemail": "Please provide your email.",
+        "providepassword": "Please provide your password."
     },
     "signup": {
         "register": "Register",
@@ -16,10 +18,14 @@
         "signupNow": "Signup Now",
         "ifYouHaveAlready": "If you have already",
         "goLogin": "Go Login",
-        "username": "Username",
+        "name": "Name",
         "email": "Email",
         "password": "Password",
         "continueWithGoogle": "Continue with Google",
-        "continueWithFacebook": "Continue with Facebook"
+        "continueWithFacebook": "Continue with Facebook",
+        "providename": "Please provide your name.",
+        "provideemail": "Please provide your email.",
+        "providepassword": "Please provide your password.",
+        "emailExists": "Email already exists."
     }
 }

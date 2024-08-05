@@ -8,6 +8,8 @@ import { Input } from "@nextui-org/input"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useTranslations } from 'next-intl'
 import Locale from "@/components/locale"
+import { postSignin } from '@/lib/api/signin'
+import useSignInValidation from '@/lib/hooks/signInValidation'
 
 export async function getServerSideProps(context) {
     const csrfToken = await getCsrfToken(context)
@@ -21,6 +23,7 @@ export default function Signin({csrfToken}) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isVisible, setIsVisible] = useState(false)
+    const { values, errors, emailInValid, passwordInValid, handleChange, validateAll } = useSignInValidation({email, password})
     const t = useTranslations('signin')
 
     const router = useRouter()
@@ -29,11 +32,12 @@ export default function Signin({csrfToken}) {
 
     const handleSignIn = async (e) => {
         e.preventDefault()
-    
-        const response = await signIn('credentials', {
-            email,
-            password
-        })
+        validateAll()
+        if(values.email != '' && values.password != '') {
+            const response = await postSignin({
+                email: values.email, password: values.password
+            })
+        }
     }
 
     return (
@@ -53,27 +57,29 @@ export default function Signin({csrfToken}) {
                 <div className="mt-4">
                     <form method="post" onSubmit={handleSignIn}>
                         <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-3">
                             <Input
                                 type="email"
                                 label={t('email')}
                                 variant="bordered"
-                                defaultValue={email}
-                                isInvalid={false}
-                                errorMessage="Please enter a valid email"
-                                className="h-16"
+                                value={values.email}
+                                isInvalid={emailInValid}
+                                errorMessage={errors.email ? t(errors.email) : ''}
+                                className=""
                                 fullWidth="true"
-                                onChange={(e) => setEmail(e.target.value)}
+                                name="email"
+                                onChange={handleChange}
                             />
                             <Input
                                 label={t('password')}
                                 variant="bordered"
-                                defaultValue={password}
-                                isInvalid={false}
-                                errorMessage="Please enter a valid email"
-                                className="h-16"
+                                value={values.password}
+                                isInvalid={passwordInValid}
+                                errorMessage={errors.password ? t(errors.password) : ''}
+                                className=""
                                 fullWidth="true"
-                                onChange={(e) => setPassword(e.target.value)}
+                                name="password"
+                                onChange={handleChange}
                                 endContent={
                                     <button className="focus:outline-none" type="button" onClick={toggleVisibility} aria-label="toggle password visibility">
                                       {isVisible ? (

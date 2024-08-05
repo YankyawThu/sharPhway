@@ -11,7 +11,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
   const router = useRouter()
 
   return (
-    <NextIntlClientProvider locale={router.locale} messages={pageProps.messages}>
+    <NextIntlClientProvider locale={router.locale} timeZone="Asia/Bangkok" messages={pageProps.messages}>
       <NextUIProvider>
         <NextThemesProvider attribute="class">
           <SessionProvider session={session}>
