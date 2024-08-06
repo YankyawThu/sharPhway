@@ -10,6 +10,7 @@ import { useTranslations } from 'next-intl'
 import Locale from "@/components/locale"
 import { postSignin } from '@/lib/api/signin'
 import useSignInValidation from '@/lib/hooks/signInValidation'
+import Image from 'next/image'
 
 export async function getServerSideProps(context) {
     const csrfToken = await getCsrfToken(context)
@@ -44,20 +45,21 @@ export default function Signin({csrfToken}) {
     }
 
     return (
-        <div className="flex flex justify-center items-center h-screen">
+        <div className="flex flex-col justify-center items-center h-screen">
             <div className="w-[22rem] border-2 dark:border-gray-700 p-7 rounded-2xl">
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center">
                     <div>
-                        <div className="text-2xl font-bold">{t('hey')},</div>
-                        <div className="text-2xl font-bold">{t('loginNow')}.</div>
+                        <Image src="/logo1.png" width={200} height={200} alt="logo" className="" />
+                        {/* <div className="text-2xl font-bold">{t('loginNow')}.</div> */}
                     </div>
                     <Locale />
                 </div>
-                <div className="inline-flex items-center py-4">
+                <div className="text-2xl font-bold mt-5">{t('hey')},</div>
+                <div className="inline-flex items-center py-1">
                     <div className="text-gray-500 text-xs mr-2">{t('ifYouAreNew')} /</div>
                     <button className="" onClick={() => router.push('/auth/signup')}>{t('createNew')}</button>
                 </div>
-                <div className="mt-4">
+                <div className="mt-5">
                     <form method="post" onSubmit={handleSignIn}>
                         <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
                         <div className="flex flex-col gap-3">

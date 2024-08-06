@@ -11,6 +11,7 @@ import Locale from "@/components/locale"
 import useSignUpValidation from '@/lib/hooks/signUpValidation'
 import { createUser } from '@/lib/api/signup'
 import { PASS_RULE } from '@/lib/config/const'
+import Image from 'next/image'
 
 export async function getStaticProps(context) {
     return {
@@ -49,20 +50,21 @@ export default function Signup() {
     }
 
     return (
-        <div className="flex flex justify-center items-center h-screen">
+        <div className="flex flex-col justify-center items-center h-screen">
             <div className="w-[22rem] border-2 dark:border-gray-700 p-7 rounded-2xl">
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center">
                     <div>
-                        <div className="text-2xl font-bold">{t('hey')},</div>
-                        <div className="text-2xl font-bold">{t('signupNow')}.</div>
+                        <Image src="/logo1.png" width={200} height={200} alt="logo" className="" />
+                        {/* <div className="text-2xl font-bold">{t('signupNow')}.</div> */}
                     </div>
                     <Locale />
                 </div>
-                <div className="inline-flex items-center py-4">
+                <div className="text-2xl font-bold mt-5">{t('hey')},</div>
+                <div className="inline-flex items-center py-1">
                     <div className="text-gray-500 text-xs mr-2">{t('ifYouHaveAlready')} /</div>
                     <button className="" onClick={() => router.push('/auth/signin')}>{t('goLogin')}</button>
                 </div>
-                <div className="mt-4">
+                <div className="mt-5">
                     <form onSubmit={handleSignUp}>
                     <div className="flex flex-col gap-3">
                         <Input
