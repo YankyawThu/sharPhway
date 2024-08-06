@@ -10,7 +10,9 @@
         "continueWithGoogle": "Google နှင့်ဆက်လုပ်မည်",
         "continueWithFacebook": "Facebook နှင့်ဆက်လုပ်မည်",
         "provideemail": "ကျေးဇူးပြူ၍အီးမေလ်ထည့်ပေးပါ။",
-        "providepassword": "ကျေးဇူးပြူ၍စကားဝှက်ထည့်ပေးပါ။"
+        "providepassword": "ကျေးဇူးပြူ၍စကားဝှက်ထည့်ပေးပါ။",
+        "emailNoExists": "အီးမေလ်မရှိပါ။",
+        "passwordIncorrect": "စကားဝှက်မှားနေပါသည်။"
     },
     "signup": {
         "register": "အတည်ပြုမည်",
@@ -26,6 +28,7 @@
         "providename": "ကျေးဇူးပြူ၍နာမည်ထည့်ပေးပါ။",
         "provideemail": "ကျေးဇူးပြူ၍အီးမေလ်ထည့်ပေးပါ။",
         "providepassword": "ကျေးဇူးပြူ၍စကားဝှက်ထည့်ပေးပါ။",
+        "provide6chrpassword": "ကျေးဇူးပြူ၍စကားဝှက်၆လုံးအထက်ပေးပါ။.",
         "emailExists": "အီးမေလ်အသုံးပြုသူရှိနေပါသည်။"
     }
 }

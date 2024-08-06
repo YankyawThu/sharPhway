@@ -25,6 +25,7 @@ export default async function handler(req, res) {
             },
         })
     } catch (error) {
+        throw error
         return res.status(500).json({ msg: 'Database error' })
     } finally {
         await prisma.$disconnect()

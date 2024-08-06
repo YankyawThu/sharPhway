@@ -23,7 +23,7 @@ export default function Signin({csrfToken}) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isVisible, setIsVisible] = useState(false)
-    const { values, errors, emailInValid, passwordInValid, handleChange, validateAll } = useSignInValidation({email, password})
+    const { values, errors, emailInValid, passwordInValid, handleChange, validate } = useSignInValidation({email, password})
     const t = useTranslations('signin')
 
     const router = useRouter()
@@ -32,11 +32,14 @@ export default function Signin({csrfToken}) {
 
     const handleSignIn = async (e) => {
         e.preventDefault()
-        validateAll()
+        validate()
         if(values.email != '' && values.password != '') {
             const response = await postSignin({
                 email: values.email, password: values.password
             })
+            if(response) {
+                validate(response.type, null, response.msg)
+            }
         }
     }
 

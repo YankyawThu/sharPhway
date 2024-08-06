@@ -10,7 +10,9 @@
         "continueWithGoogle": "Continue with Google",
         "continueWithFacebook": "Continue with Facebook",
         "provideemail": "Please provide your email.",
-        "providepassword": "Please provide your password."
+        "providepassword": "Please provide your password.",
+        "emailNoExists": "Email does not exists",
+        "passwordIncorrect": "Password is incorrect"
     },
     "signup": {
         "register": "Register",
@@ -26,6 +28,7 @@
         "providename": "Please provide your name.",
         "provideemail": "Please provide your email.",
         "providepassword": "Please provide your password.",
+        "provide6chrpassword": "Please provide your 6+ character.",
         "emailExists": "Email already exists."
     }
 }

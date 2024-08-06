@@ -10,6 +10,7 @@ import { useTranslations } from 'next-intl'
 import Locale from "@/components/locale"
 import useSignUpValidation from '@/lib/hooks/signUpValidation'
 import { createUser } from '@/lib/api/signup'
+import { PASS_RULE } from '@/lib/config/const'
 
 export async function getStaticProps(context) {
     return {
@@ -22,7 +23,7 @@ export default function Signup() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isVisible, setIsVisible] = useState(false)
-    const { values, errors, nameInValid, emailInValid, passwordInValid, handleChange, validateAll, validate } = useSignUpValidation({name, email, password})
+    const { values, errors, nameInValid, emailInValid, passwordInValid, handleChange, validate } = useSignUpValidation({name, email, password})
     const t = useTranslations('signup')
 
     const router = useRouter()
@@ -31,12 +32,12 @@ export default function Signup() {
 
     const handleSignUp = async (e) => {
         e.preventDefault()
-        validateAll()
-        if(values.name != '' && values.email != '' && values.password != '') {
+        validate()
+        if(values.name != '' && values.email != '' && PASS_RULE.test(values.password)) {
             try {
                 const data = await createUser({name: values.name, email: values.email, password: values.password})
                 if(data.exist) {
-                    validate('email', 1)
+                    validate('email', null, 1)
                 }
                 else router.push('/auth/signin')
             } catch (error) {
