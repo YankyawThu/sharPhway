@@ -30,5 +30,10 @@
         "providepassword": "Please provide your password.",
         "provide6chrpassword": "Please provide your 6+ character.",
         "emailExists": "Email already exists."
+    },
+    "navbar": {
+        "news": "News",
+        "fyi": "Must Know",
+        "logout": "Log out"
     }
 }

@@ -13,17 +13,12 @@ export async function getStaticProps(context) {
   }
 }
 
-export default function Home({children}) {
+export default function Home() {
   const t = useTranslations()
   const router = useRouter()
-  const { locale: activeLocale } = router
 
   return (
     <>
-      <Locale />
-      <Link href="/news">News Services FYI Exchange BUY SELL Rate</Link>
-      Welcome! <button onClick={() => signOut()}>{t('logout')}</button>
-      {children}
     </>
   )
 }

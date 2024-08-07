@@ -26,11 +26,11 @@ export default function Locale() {
         <div>
             <Dropdown className="min-w-10">
                 <DropdownTrigger>
-                    <Button variant="bordered" className="min-w-10 uppercase">
+                    <Button variant="light" className="min-w-10 uppercase">
                         {activeLocale}
                     </Button>
                 </DropdownTrigger>
-                <DropdownMenu aria-label="Dynamic Actions" items={otherLocales}>
+                <DropdownMenu aria-label="Dynamic Actions" items={otherLocales} className="">
                     {(item) => (
                         <DropdownItem
                             key={item.key}
