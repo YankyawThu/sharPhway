@@ -20,7 +20,8 @@ export default function Navbar(messages) {
             </Link>
             <div className="inline-flex justify-center">
                 <Link href="/news" className="p-3">{t('news')}</Link>
-                <Link href="/fyi" className="p-3">{t('fyi')}</Link>
+                <Link href="#" className="p-3">{t('fyi')}</Link>
+                <Link href="#" className="p-3">{t('community')}</Link>
             </div>
             <div className="flex flex-row-reverse items-center gap-1">
                 <Dropdown className="min-w-36">

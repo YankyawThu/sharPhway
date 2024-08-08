@@ -33,7 +33,8 @@
     },
     "navbar": {
         "news": "News",
-        "fyi": "Must Know",
+        "fyi": "Facts",
+        "community": "Community",
         "logout": "Log out"
     }
 }
