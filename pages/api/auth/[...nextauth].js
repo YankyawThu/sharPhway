@@ -57,7 +57,7 @@ export default NextAuth({
             // Manage session data for the client and token for middleware
             const user = await prisma.user.findUnique({
                 where: {
-                    email: session?.user.email,
+                    email: session?.user?.email,
                 },
             })
             session.user.role = user.role

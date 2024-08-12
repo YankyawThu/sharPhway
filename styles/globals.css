@@ -9,3 +9,13 @@ body {
   /* font-family: 'Noto Sans Myanmar', sans-serif; */
   /* letter-spacing: 0.2px; */
 }
+
+.bg-color {
+  background: linear-gradient(-45deg, #fffaf6, #e3f0f1, #f8f7ff);
+}
+
+.dark-bg-color {
+  background: linear-gradient(-45deg, #0d0c0b, #0b1f23, #18161d);
+}
+
+

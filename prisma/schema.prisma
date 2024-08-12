@@ -1,31 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
- 
-generator client {
-  provider = "prisma-client-js"
-}
- 
+
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String  @map("user_id")
-  type               String
-  provider           String
-  providerAccountId  String  @map("provider_account_id")
-  refresh_token      String? @db.Text
-  access_token       String? @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String? @db.Text
-  session_state      String?
- 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
- 
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   @@unique([provider, providerAccountId])
 }
- 
+
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique @map("session_token")
@@ -33,7 +32,7 @@ model Session {
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
- 
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -45,13 +44,45 @@ model User {
   accounts      Account[]
   sessions      Session[]
 }
- 
+
 model VerificationToken {
   identifier String
   token      String
   expires    DateTime
- 
+
   @@unique([identifier, token])
+}
+
+model Exchange {
+  id          String   @id
+  currency    String
+  description String?
+  base_amount String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+  buy         Float    @default(0.00)
+  sell        Float    @default(0.00)
+}
+
+model Fyi {
+  id        String   @id
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+}
+
+model News {
+  id        String   @id
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  img1      String?
+  img2      String?
+  img3      String?
+  img4      String?
+  img5      String?
 }
 
 enum Role {

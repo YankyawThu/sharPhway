@@ -33,8 +33,21 @@
     },
     "navbar": {
         "news": "News",
-        "fyi": "Facts",
-        "community": "Community",
+        "facts": "Facts",
+        "services": "Services",
         "logout": "Log out"
+    },
+    "home": {
+        "header": "Today Baht Exchange..",
+        "header2": "Last 10 Records",
+        "youSend": "You send",
+        "youReceive": "You receive",
+        "baht": "BAHT",
+        "mmk": "MMK",
+        "buy": "BUY",
+        "sell": "SELL",
+        "time": "TIME",
+        "": "",
+        "lastupdatedTime": "Last updated time"
     }
 }
