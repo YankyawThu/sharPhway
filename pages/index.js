@@ -107,7 +107,7 @@ export default function Home() {
   return (
     <>
       <div className="bg my-10">
-        <div className="text-[40px] text-center py-10">{t('header')}</div>
+        <div className="text-[40px] text-center pb-10">{t('header')}</div>
         <div className="flex justify-center w-full mt-5">
           <div className="flex flex-row items-end gap-5">
             <div className="w-80 border-1 dark:border-gray-400 border-gray-600 p-5 rounded-2xl">
@@ -117,7 +117,7 @@ export default function Home() {
                     <CardBody className="bg-[#f4f4f5] dark:bg-[#27272a]">
                       <div className="flex justify-between"> 
                         <div className="flex flex-col gap-4">
-                          <div className="text-gray-500">{t('youSend')}</div>
+                          <div className="text-gray-500">{t('youGive')}</div>
                           <Image src="/baht.png" width="30" height="30" alt="baht" />
                         </div>
                         <div className="flex flex-col gap-4">
@@ -185,7 +185,7 @@ export default function Home() {
                     <CardBody className="bg-[#f4f4f5] dark:bg-[#27272a]">
                       <div className="flex justify-between"> 
                         <div className="flex flex-col gap-4">
-                          <div className="text-gray-500">{t('youSend')}</div>
+                          <div className="text-gray-500">{t('youGive')}</div>
                           <Image src="/mmk.png" width="30" height="30" alt="mmk" />
                         </div>
                         <div className="flex flex-col gap-4">

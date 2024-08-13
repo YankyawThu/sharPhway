@@ -28,7 +28,7 @@ export default function NavbarLayout(messages) {
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 {MENU_ITEMS.map((item, index) => (
                 <NavbarItem key={`${item}-${index}`}>
-                    <Link href={item.href}>
+                    <Link href={item.href} className="py-2 px-1">
                         {t(item.name)}
                     </Link>
                 </NavbarItem>
