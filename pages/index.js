@@ -11,42 +11,26 @@ import {Tabs, Tab, Card, CardBody, Slider, Table, TableHeader, TableColumn, Tabl
 import { timeDiffFromDate } from '@/lib/utils/helper'
 
 export async function getStaticProps(context) {
+  const data = await fetchExchanges()
+
   return {
     props: {
-      messages: (await import(`@/pages/locales/${context.locale}.json`)).default
+      messages: (await import(`@/pages/locales/${context.locale}.json`)).default,
+      data
     }
   }
 }
 
-export default function Home() {
-  const [exchanges, setExchanges] = useState({})
-  const [filterMmk, setFilterMmk] = useState(100000)
-  const [filteredResult, setFilteredResult] = useState(0)
-  const [filterMmkSell, setFilterMmkSell] = useState(100000)
-  const [filteredResultSell, setFilteredResultSell] = useState(0)
+export default function Home({data}) {
+  const [exchanges, setExchanges] = useState(data)
+  const [filterMmk, setFilterMmk] = useState(data.last.base_amount)
+  const [filteredResult, setFilteredResult] = useState(data.last.buy)
+  const [filterMmkSell, setFilterMmkSell] = useState(data.last.base_amount)
+  const [filteredResultSell, setFilteredResultSell] = useState(data.last.sell)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const t = useTranslations('home')
   const router = useRouter()
-
-  useEffect(() => {
-    loadData()
-  }, [])
-
-  const loadData = async() => {
-    try {
-        const data = await fetchExchanges()
-        setExchanges(data)
-        setFilterMmk(data.last.base_amount)
-        setFilteredResult(data.last.buy)
-        setFilterMmkSell(data.last.base_amount)
-        setFilteredResultSell(data.last.sell)
-    } catch (error) {
-        setError('Something was wrong')
-    } finally {
-        setLoading(false)
-    }
-  }
 
   const priceFilter = val => {
     setFilterMmk(val)

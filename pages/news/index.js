@@ -10,34 +10,32 @@ import { IoMdTime } from "react-icons/io"
 import { Button } from '@nextui-org/react'
 
 export async function getStaticProps(context) {
+    const {data, totalPages} = await fetchNews()
+
     return {
         props: {
             messages: (await import(`@/pages/locales/${context.locale}.json`)).default,
+            data,
+            totalPages
         }
     }
 }
 
-export default function News() {
-    const [news, setNews] = useState([])
-    const [detail, setDetail] = useState({})
-    const [active, setActive] = useState('')
+export default function News({data, totalPages}) {
+    const [news, setNews] = useState(data)
+    const [detail, setDetail] = useState(data[0])
+    const [active, setActive] = useState(data[0].id)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
-    const [pages, setPages] = useState(1)
+    const [pages, setPages] = useState(totalPages)
     const [page, setPage] = useState(0)
     const t = useTranslations('news')
 
-    useEffect(() => {
-        loadData()
-    }, [])
-
     const loadData = async() => {
         try {
-            const {data, totalPages} = await fetchNews(page)
+            let tempPage = page + 1
+            const {data} = await fetchNews(tempPage)
             setNews([...news, ...data])
-            setDetail(news[0] ?? data[0])
-            setActive(news[0].id ?? data[0].id)
-            setPages(totalPages)
             setPage(prevstate => prevstate + 1)
         } catch (error) {
             setError('Something was wrong')
