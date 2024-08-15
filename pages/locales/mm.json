@@ -7,8 +7,8 @@
         "createNew": "အကောင့်လုပ်မည်",
         "email": "အီးမေလ်",
         "password": "စကားဝှက်",
-        "continueWithGoogle": "Google နှင့်ဆက်လုပ်မည်",
-        "continueWithFacebook": "Facebook နှင့်ဆက်လုပ်မည်",
+        "continueWithGoogle": "Google နှင့်ဝင်ရောက်မည်",
+        "continueWithFacebook": "Facebook နှင့်ဝင်ရောက်မည်",
         "provideemail": "ကျေးဇူးပြူ၍အီးမေလ်ထည့်ပေးပါ။",
         "providepassword": "ကျေးဇူးပြူ၍စကားဝှက်ထည့်ပေးပါ။",
         "emailNoExists": "အီးမေလ်မရှိပါ။",
@@ -23,8 +23,8 @@
         "name": "နာမည်",
         "email": "အီးမေလ်",
         "password": "စကားဝှက်",
-        "continueWithGoogle": "Google နှင့်ဆက်လုပ်မည်",
-        "continueWithFacebook": "Facebook နှင့်ဆက်လုပ်မည်",
+        "continueWithGoogle": "Google နှင့်ဝင်ရောက်မည်",
+        "continueWithFacebook": "Facebook နှင့်ဝင်ရောက်မည်",
         "providename": "ကျေးဇူးပြူ၍နာမည်ထည့်ပေးပါ။",
         "provideemail": "ကျေးဇူးပြူ၍အီးမေလ်ထည့်ပေးပါ။",
         "providepassword": "ကျေးဇူးပြူ၍စကားဝှက်ထည့်ပေးပါ။",
@@ -49,5 +49,8 @@
         "time": "အချိန်",
         "": "",
         "lastupdatedTime": "နောက်ဆုံးအချိန်"
+    },
+    "news": {
+
     }
 }

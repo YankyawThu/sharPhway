@@ -4,13 +4,13 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: 'lh3.googleusercontent.com'
+        hostname: 'drive.google.com',
       }
     ]
   },
   i18n: {
     locales: ['en', 'mm'],
-    defaultLocale: 'en',
+    defaultLocale: 'mm',
     localeDetection: false
   },
   trailingSlash: true,

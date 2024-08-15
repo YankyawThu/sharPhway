@@ -3,8 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { FcGoogle } from "react-icons/fc"
 import { FaFacebook } from "react-icons/fa"
-import { Button } from "@nextui-org/react"
-import { Input } from "@nextui-org/input"
+import { Input, Button } from "@nextui-org/react"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useTranslations } from 'next-intl'
 import Locale from "@/components/locale"
@@ -54,7 +53,7 @@ export default function Signup() {
             <div className="w-[22rem] border-2 dark:border-gray-700 p-7 rounded-2xl">
                 <div className="flex justify-between items-center">
                     <div>
-                        <Image src="/logo1.png" width={200} height={200} alt="logo" className="" />
+                        <Image src="/logo1.png" width={150} height={150} alt="logo" priority={true} className="w-auto h-auto" />
                         {/* <div className="text-2xl font-bold">{t('signupNow')}.</div> */}
                     </div>
                     <Locale />

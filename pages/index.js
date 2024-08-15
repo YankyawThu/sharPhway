@@ -13,7 +13,7 @@ import { timeDiffFromDate } from '@/lib/utils/helper'
 export async function getStaticProps(context) {
   return {
     props: {
-      messages: (await import(`./locales/${context.locale}.json`)).default
+      messages: (await import(`@/pages/locales/${context.locale}.json`)).default
     }
   }
 }
@@ -24,8 +24,8 @@ export default function Home() {
   const [filteredResult, setFilteredResult] = useState(0)
   const [filterMmkSell, setFilterMmkSell] = useState(100000)
   const [filteredResultSell, setFilteredResultSell] = useState(0)
-  const [loading, setLoading] = useState([])
-  const [error, setError] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
   const t = useTranslations('home')
   const router = useRouter()
 

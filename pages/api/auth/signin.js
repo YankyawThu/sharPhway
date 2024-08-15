@@ -7,21 +7,21 @@ export default async function handler(req, res) {
     try {
         await prisma.$connect()
         const { email, password } = req.body
-
-        const existedUser = await prisma.user.findUnique({
-            where: { email },
-        })
-    
-        if (!existedUser) {
-            return res.status(409).json({type: 'email', msg: 'emailNoExists' })
-        }
-        else {
-            const isEqual = await compare(password, existedUser.password)
-            if(!isEqual) {
-                return res.status(409).json({type: 'password', msg: 'passwordIncorrect' })
+        if(email) {
+            const existedUser = await prisma.user.findUnique({
+                where: { email },
+            })
+            if (!existedUser) {
+                return res.status(409).json({type: 'email', msg: 'emailNoExists' })
+            }
+            else {
+                const isEqual = await compare(password, existedUser.password)
+                if(!isEqual) {
+                    return res.status(409).json({type: 'password', msg: 'passwordIncorrect' })
+                }
             }
         }
-
+        else return res.redirect('/')
     } catch (error) {
         throw error
         return res.status(500).json({ msg: 'Database error' })

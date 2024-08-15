@@ -25,7 +25,7 @@ export default function Layout({children}) {
     if(activeLocale == 'en') {
         fontStyle = roboto.className
     }
-    else fontStyle = padauk.className
+    else fontStyle = padauk.className + 'text-[14px]'
 
     return (
         <>

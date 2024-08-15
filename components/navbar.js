@@ -3,11 +3,10 @@ import Image from "next/image"
 import Locale from "@/components/locale"
 import { useSession, signOut } from "next-auth/react"
 import { useTranslations } from 'next-intl'
-import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Avatar} from "@nextui-org/react"
 import { IoMdLogOut } from "react-icons/io"
 import { useTheme } from "next-themes"
 import { LuSun, LuMoon } from "react-icons/lu"
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle} from "@nextui-org/react"
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Avatar} from "@nextui-org/react"
 import { MENU_ITEMS } from '@/lib/config/const'
 import { useState } from 'react'
 
@@ -22,7 +21,7 @@ export default function NavbarLayout(messages) {
             <NavbarBrand>
                 <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="sm:hidden p-4  mr-2" />
                 <Link href="/">
-                    <Image src="/logo1.png" width={200} height={200} alt="logo" className="" />
+                    <Image src="/logo1.png" width={150} height={150} alt="logo" priority={true} className="w-auto h-auto" />
                 </Link>
             </NavbarBrand>
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
