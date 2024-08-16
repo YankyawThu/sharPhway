@@ -10,8 +10,9 @@ export default async function handler(req, res) {
         if(email) {
             const existedUser = await prisma.user.findUnique({
                 where: { email },
+                include: { accounts: true }
             })
-            if (!existedUser) {
+            if (!existedUser || existedUser.accounts.length > 0) {
                 return res.status(409).json({type: 'email', msg: 'emailNoExists' })
             }
             else {

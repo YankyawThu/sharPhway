@@ -9,25 +9,27 @@ import { LuSun, LuMoon } from "react-icons/lu"
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Avatar} from "@nextui-org/react"
 import { MENU_ITEMS } from '@/lib/config/const'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
-export default function NavbarLayout(messages) {
+export default function NavbarLayout() {
     const t = useTranslations('navbar')
     const { data: session, status } = useSession()
     const { theme, setTheme } = useTheme()
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const router = useRouter()
 
     return (
-        <Navbar onMenuOpenChange={setIsMenuOpen} shouldHideOnScroll maxWidth="full" className="bg-transparent">
+        <Navbar onMenuOpenChange={setIsMenuOpen} shouldHideOnScroll maxWidth="full" classNames={{base: ["bg-transparent"], item: ["data-[active=true]:text-[#e1a249]"]}}>
             <NavbarBrand>
-                <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="sm:hidden p-4  mr-2" />
+                <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="lg:hidden p-4 mr-2" />
                 <Link href="/">
                     <Image src="/logo1.png" width={150} height={150} alt="logo" priority={true} className="w-auto h-auto" />
                 </Link>
             </NavbarBrand>
-            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <NavbarContent className="hidden lg:flex gap-4" justify="center">
                 {MENU_ITEMS.map((item, index) => (
-                <NavbarItem key={`${item}-${index}`}>
-                    <Link href={item.href} className="py-2 px-1">
+                <NavbarItem key={`${item}-${index}`} isActive={item.href === router.pathname}>
+                    <Link href={item.href} className={`py-2 ${item.href == router.pathname ? 'bracketEff-active' : 'bracketEff'}`}>
                         {t(item.name)}
                     </Link>
                 </NavbarItem>
@@ -47,7 +49,7 @@ export default function NavbarLayout(messages) {
                 <NavbarItem>
                 <Dropdown className="min-w-36" placement="bottom-end">
                     <DropdownTrigger>
-                        <Avatar showFallback isBordered as="button" size="md" src={session?.user?.image ?? 'https  images.unsplash.com/broken'} className="ml-1" />
+                        <Avatar showFallback isBordered as="button" size="md" src={session?.user?.image ?? 'https://images.unsplash.com/broken'} className="ml-1" />
                     </DropdownTrigger>
                     <DropdownMenu aria-label="Static Actions" className="">
                         <DropdownItem onClick={signOut} className="">

@@ -35,6 +35,7 @@
         "news": "News",
         "facts": "Facts",
         "services": "Services",
+        "community": "Community",
         "logout": "Log out"
     },
     "home": {

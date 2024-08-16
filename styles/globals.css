@@ -17,3 +17,44 @@ body {
 .dark-bg-color {
   background: linear-gradient(-45deg, #0d0c0b, #0b1f23, #18161d);
 }
+
+.bracketEff:before, .bracketEff:after {
+	display: inline-block;
+	opacity: 0;
+	transition: transform 0.3s, opacity 0.2s;
+}
+
+.bracketEff:before {
+	margin-right: 5px;
+	content: '(';
+	transform: translateX(10px);
+}
+
+.bracketEff:after {
+	margin-left: 5px;
+	content: ')';
+	transform: translateX(-10px);
+}
+
+.bracketEff:hover:before, .bracketEff:hover:after {
+	opacity: 1;
+	transform: translateX(0px);
+}
+
+.bracketEff-active:before, .bracketEff-active:after {
+	display: inline-block;
+	opacity: 1;
+	transition: transform 0.3s, opacity 0.2s;
+}
+
+.bracketEff-active:before {
+	margin-right: 5px;
+	content: '(';
+	transform: translateX(0px);
+}
+
+.bracketEff-active:after {
+	margin-left: 5px;
+	content: ')';
+	transform: translateX(0px);
+}

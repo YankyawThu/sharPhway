@@ -69,9 +69,8 @@ export default function Signin({csrfToken}) {
                                 value={values.email}
                                 isInvalid={emailInValid}
                                 errorMessage={errors.email ? t(errors.email) : ''}
-                                className=""
-                                fullWidth="true"
                                 name="email"
+                                classNames={{inputWrapper:["group-data-[focus=true]:border-yellow-500/50", "group-data-[hover=true]:border-yellow-500/50"]}}
                                 onChange={handleChange}
                             />
                             <Input
@@ -80,9 +79,8 @@ export default function Signin({csrfToken}) {
                                 value={values.password}
                                 isInvalid={passwordInValid}
                                 errorMessage={errors.password ? t(errors.password) : ''}
-                                className=""
-                                fullWidth="true"
                                 name="password"
+                                classNames={{inputWrapper:["group-data-[focus=true]:border-yellow-500/50", "group-data-[hover=true]:border-yellow-500/50"]}}
                                 onChange={handleChange}
                                 endContent={
                                     <button className="focus:outline-none" type="button" onClick={toggleVisibility} aria-label="toggle password visibility">
