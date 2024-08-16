@@ -51,6 +51,9 @@
         "lastupdatedTime": "Last updated time"
     },
     "news": {
-        
+    },
+    "facts": {
+        "lastupdatedTime": "Last updated time",
+        "search": "Type you want to know..."
     }
 }

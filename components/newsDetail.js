@@ -10,8 +10,6 @@ import 'swiper/css/pagination'
 import { Pagination, Autoplay, EffectFade } from 'swiper/modules'
 
 export default function NewsDetail({news = null}) {
-    const renderHtml = news?.content
-
     useEffect(() => {
         document.getElementById('content').innerHTML = news?.content
     }, [news])
@@ -41,7 +39,7 @@ export default function NewsDetail({news = null}) {
                 <div className="text-lg">{news?.title}</div>
                 <div className="inline-flex justify-end items-center w-56 gap-2 text-gray-500"><IoMdTime className="text-lg" />{timeDiffFromDate(news?.createdAt)}</div>
             </div>
-            <div className="my-3 leading-7 tracking-wide align-middle dark:text-gray-400 text-gray-600" id="content">
+            <div className="my-3 leading-7 tracking-wide dark:text-gray-400 text-gray-600" id="content">
             </div>
         </div>
     )

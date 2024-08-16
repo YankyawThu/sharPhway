@@ -51,6 +51,9 @@
         "lastupdatedTime": "နောက်ဆုံးအချိန်"
     },
     "news": {
-
+    },
+    "facts": {
+        "lastupdatedTime": "နောက်ဆုံးအချိန်",
+        "search": "သိလိုသမျှရှာပါ..."
     }
 }

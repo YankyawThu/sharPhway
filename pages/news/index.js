@@ -50,11 +50,11 @@ export default function News({data, totalPages}) {
     }
 
     return (
-        <div className="flex justify-center py-5">
+        <div className="flex justify-center py-3">
             <div className="flex flex-row gap-3">
                 <ScrollShadow hideScrollBar size={10} className="w-80 p-3 h-screen">
                     {news?.map((item, i) => (
-                        <div onClick={() => goDetail(item)} className={`inline-flex gap-2 my-1 p-3 rounded-2xl ${item.id == active ? 'outline outline-gray-700' : ''} hover:outline hover:outline-gray-700 cursor-pointer`} key={item.id}>
+                        <div onClick={() => goDetail(item)} className={`inline-flex gap-2 my-1 p-3 rounded-xl ${item.id == active ? 'outline outline-gray-700' : ''} hover:outline hover:outline-gray-700 cursor-pointer`} key={item.id}>
                             <Image src={item?.img1} width={70} height={70} style={{objectFit: "contain"}} alt="news" priority={true} className="w-[100px] h-auto rounded-xl" />
                             <div>
                                 <div className="inline-flex items-center gap-1 text-xs text-gray-500 py-2"><IoMdTime className="text-lg" />{timeDiffFromDate(item.createdAt)}</div>
