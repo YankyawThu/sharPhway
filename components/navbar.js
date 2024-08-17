@@ -18,8 +18,13 @@ export default function NavbarLayout() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const router = useRouter()
 
+    const navigate = url => {
+        setIsMenuOpen(false)
+        router.push(url)
+    }
+
     return (
-        <Navbar onMenuOpenChange={setIsMenuOpen} shouldHideOnScroll maxWidth="full" classNames={{base: ["bg-transparent"], item: ["data-[active=true]:text-[#e1a249]"]}}>
+        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} shouldHideOnScroll maxWidth="full" classNames={{base: ["bg-transparent"], item: ["data-[active=true]:text-[#e1a249]"], menuItem: ["data-[active=true]:text-[#e1a249]"]}}>
             <NavbarBrand>
                 <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="lg:hidden p-4 mr-2" />
                 <Link href="/">
@@ -63,10 +68,10 @@ export default function NavbarLayout() {
             </NavbarContent>
             <NavbarMenu>
                 {MENU_ITEMS.map((item, index) => (
-                <NavbarMenuItem key={`${item}-${index}`}>
-                    <Link href={item.href}>
-                        {item.name}
-                    </Link>
+                <NavbarMenuItem key={`${item}-${index}`} isActive={item.href === router.pathname}>
+                    <div onClick={() => navigate(item.href)} className={`cursor-pointer ${item.href == router.pathname ? 'bracketEff-active' : 'bracketEff'}`}>
+                        {t(item.name)}
+                    </div>
                 </NavbarMenuItem>
                 ))}
             </NavbarMenu>
